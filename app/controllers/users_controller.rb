@@ -5,10 +5,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:notice] = "Welcome Aboard!"
+      flash[:notice] = "Welcome to this awesome site!"
       redirect_to '/'
     else
-      flash[:alert] = "There was a problem creating your account. Sucka."
+      flash[:alert] = "There was a problem creating your account. Try again, please."
       redirect_to :back
     end
   end
