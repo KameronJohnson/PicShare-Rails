@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :pics
+
   attr_accessor :password
   validates_confirmation_of :password
   before_save :encrypt_password
