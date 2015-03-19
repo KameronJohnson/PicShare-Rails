@@ -2,7 +2,7 @@ class PicsController < ApplicationController
   before_action :find_pic, only: [:show, :update, :destroy]
 
   def index
-    @pics = Pic.all.order("created_at DESC")
+    @pics = Pic.all
   end
 
   def new
@@ -27,6 +27,8 @@ class PicsController < ApplicationController
   end
 
   def edit
+    @pic = Pic.find(params[:id])
+    @user = @pic.user
   end
 
   def update
@@ -39,8 +41,10 @@ class PicsController < ApplicationController
   end
 
   def destroy
+    @user = User.find(params[:user_id])
+    @pic = Pic.find(params[:id])
     @pic.destroy
-    redirect_to root_path
+    redirect_to user_path(@user)
   end
 
   private
