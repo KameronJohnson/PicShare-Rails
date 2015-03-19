@@ -1,7 +1,7 @@
 
-<%= form_for [@user, @pic] do |f| %>
+<%= form_for Pic.new(), :url => user_pics_path(@user), :html => { :multipart => true } do |f| %>
+<%= f.file_field :image %>
 <%= f.label :title %>
 <%= f.text_field :title %><br>
-
 <%= f.button :submit, class: "btn btn-info" %>
 <% end %>

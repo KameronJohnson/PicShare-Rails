@@ -1,18 +1,10 @@
-<h1>Welcome to PicShare</h1>
+<h1>PicShare</h1>
+<!-- <p><%= link_to "Log in", new_session_path %> -->
+<div class="row">
+  <div class="col-md-6">
+    <%= link_to "Log in", log_in_path, class: ['btn', 'btn-info', 'btn-md'] %>
+      <%= link_to "Sign up", new_user_path, class: ['btn', 'btn-info', 'btn-md'] %>
+    </div>
+</div>
 
-Welcome, <%= current_user.email %>
-
-<ul>
-  <% @pic.each do |pic| %>
-  <li>
-    <%= pic.title %>|
-    <%= link_to "Edit", edit_pic_path(@pic) %> |
-    <%= link_to "Delete", pic_path(@pic),
-                                        :data => {:confirm => "Are you sure?",
-                                        :method => "delete"} %>
-  </li>
-  <% end %>
-</ul>
-  <% else %>
-  <h5> There are no pics </h5>
-  <% end %>
+<h5> Welcome, <%= current_user.email %> </h5>

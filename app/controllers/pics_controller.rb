@@ -6,13 +6,19 @@ class PicsController < ApplicationController
   end
 
   def new
-    @pic = Pic.new
+    @user = User.find(params[:user_id])
+    # @pic = Pic.new
+    @pic = Pic.create()
   end
 
   def create
-    @pic = Pic.new(pic_params)
+    @user = User.find(params[:user_id])
+    @pic = Pic.create(pic_params)
+    # @pic = Pic.new(pic_params)
+    @pic.user_id = @user.id
     if @pic.save
-      redirect_to pics_path
+      redirect_to user_path(@user)
+      # redirect_to pics_path
       # redirect_to @pic
     else
       render :new
@@ -32,12 +38,14 @@ class PicsController < ApplicationController
   end
 
   def destroy
+    @pic.destroy
+    redirect_to root_path
   end
 
   private
 
   def pic_params
-    params.require(:pic).permit(:title)
+    params.require(:pic).permit(:title, :image)
   end
 
   def find_pic

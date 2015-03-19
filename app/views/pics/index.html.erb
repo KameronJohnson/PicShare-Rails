@@ -2,13 +2,11 @@
   <% @pic.each do |pic| %>
   <li>
     <%= pic.title %>|
-    <%= link_to "Edit", edit_pic_path(@pic) %> |
-    <%= link_to "Delete", pic_path(@pic),
-                                        :data => {:confirm => "Are you sure?",
-                                        :method => "delete"} %>
   </li>
   <% end %>
 </ul>
   <% else %>
   <h5> There are no pics </h5>
   <% end %>
+
+  <%= link_to "Add a pic", new_pic_path %> 
