@@ -5,13 +5,12 @@
   <p><%= image_tag pic.image.url(:large) %></p>
   <%= link_to "Delete", user_pic_path(@user, pic),
                                       :data => {:confirm => "Are you sure?",
-                                      :method => "delete"} %>
+                                      :method => "delete"}, :class => "btn btn-sm btn-danger" %>
 
 <% end %>
 
+<br>
 
+<h5><%= link_to "Add Pic", new_user_pic_path(@user), :class => "btn btn-sm btn-info" %></h5>
 
-
-<p><%= link_to "Add Pic", new_user_pic_path(@user) %></p>
-
-<p><%= link_to "Log out", log_out_path %></p>
+<p><%= link_to "Log out", log_out_path, :class => "btn btn-sm btn-primary" %></p>
