@@ -16,13 +16,14 @@ class PicsController < ApplicationController
     @pic = Pic.create(pic_params)
     # @pic = Pic.new(pic_params)
     @pic.user_id = @user.id
-    if @pic.save
+    # if
+      @pic.save
       redirect_to user_path(@user)
       # redirect_to pics_path
       # redirect_to @pic
-    else
-      render :new
-    end
+    # else
+    #   render :new
+    # end
   end
 
   def edit

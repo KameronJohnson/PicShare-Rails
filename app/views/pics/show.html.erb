@@ -1,5 +1,6 @@
 <h1><%= @pic.title %> </h1>
 
+<%= image_tag @pic.image.url %>
 
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_pic_path(@pic) %> |
